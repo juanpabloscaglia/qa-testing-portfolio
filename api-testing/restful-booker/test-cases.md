@@ -1,18 +1,55 @@
 # Restful Booker API - Test Cases
 
+## TC-001 - Retrieve booking list
+
+**Method:** GET  
+**Endpoint:** `/booking`
+
+### Expected Result
+
+- The API should return HTTP `200`.
+- The response should contain a list of booking IDs.
+
+### Actual Result
+
+The API returned HTTP `200` and a list containing multiple booking IDs.
+
+**Status:** PASS
+
+**Evidence:** `TC-001_get_booking_list_pass.png`
+
+---
+
+## TC-002 - Retrieve booking by ID
+
+**Method:** GET  
+**Endpoint:** `/booking/{id}`
+
+### Expected Result
+
+- The API should return HTTP `200`.
+- The response should contain the selected booking details.
+
+### Actual Result
+
+The API returned HTTP `200` and booking details including fields such as firstname, lastname, totalprice, depositpaid, bookingdates, and additionalneeds.
+
+**Status:** PASS
+
+**Evidence:** `TC-002_get_booking_by_id_pass.png`
+
+---
+
 ## TC-003 - Create a new booking
 
-**Method:** POST
+**Method:** POST  
+**Endpoint:** `/booking`
 
-**Endpoint:**
-
-`/booking`
-
-## Headers
+### Headers
 
 `Content-Type: application/json`
 
-## Request Body
+### Request Body
 
 ```json
 {
@@ -28,42 +65,55 @@
 }
 ```
 
-## Expected Result
+### Expected Result
 
-- The booking should be created successfully.
-- The API should return a successful HTTP status code.
+- The API should return HTTP `200`.
+- A new booking should be created.
 - The response should contain a generated `bookingid`.
-- The response body should contain the booking information sent in the request.
+- The response should contain the booking details.
 
-## Actual Result
+### Actual Result
 
-The booking was created successfully and the API returned the expected booking information.
+The API returned HTTP `200`, a generated booking ID, and the booking details.
 
 **Status:** PASS
 
-**Evidence:**
+**Evidence:** `TC-003_create_booking_pass.png`
 
-`TC-003_create_booking_pass.png`
+---
+
+## TC-004 - Retrieve newly created booking
+
+**Method:** GET  
+**Endpoint:** `/booking/{created_id}`
+
+### Expected Result
+
+- The API should return HTTP `200`.
+- The response should contain the booking details created in TC-003.
+
+### Actual Result
+
+The API returned HTTP `200` and the same booking details created in TC-003.
+
+**Status:** PASS
+
+**Evidence:** No separate screenshot captured.
 
 ---
 
 ## TC-005 - Request booking with invalid ID
 
-**Method:** GET
+**Method:** GET  
+**Endpoint:** `/booking/{invalid_id}`
 
-**Endpoint Example:**
+### Expected Result
 
-`/booking/999999999`
-
-## Expected Result
-
-The API should indicate that the requested booking does not exist.
-
-Expected HTTP status:
+The API should return:
 
 `404 Not Found`
 
-## Actual Result
+### Actual Result
 
 The API returned:
 
@@ -73,25 +123,20 @@ The invalid booking ID was handled correctly.
 
 **Status:** PASS
 
-**Evidence:**
-
-`TC-005_invalid_booking_id_404_pass.png`
+**Evidence:** `TC-005_invalid_booking_id_404_pass.png`
 
 ---
 
 ## TC-006 - Create authentication token
 
-**Method:** POST
+**Method:** POST  
+**Endpoint:** `/auth`
 
-**Endpoint:**
-
-`/auth`
-
-## Headers
+### Headers
 
 `Content-Type: application/json`
 
-## Request Body
+### Request Body
 
 ```json
 {
@@ -100,27 +145,60 @@ The invalid booking ID was handled correctly.
 }
 ```
 
-## Expected Result
+### Expected Result
 
-- The request should return a successful response.
-- The response body should contain an authentication token.
+- The API should return HTTP `200`.
+- The response should contain an authentication token.
 
-Example response structure:
+### Actual Result
 
-```json
-{
-  "token": "********"
-}
-```
+The API returned HTTP `200` and a valid authentication token.
 
-## Actual Result
-
-The API successfully generated an authentication token.
-
-The token was redacted from public evidence for security and good documentation practices.
+The token was redacted from public evidence.
 
 **Status:** PASS
 
-**Evidence:**
+**Evidence:** `TC-006_create_auth_token_pass.png`
 
-`TC-006_create_auth_token_pass.png`
+---
+
+## TC-007 - Update existing booking
+
+**Method:** PUT  
+**Endpoint:** `/booking/{created_id}`
+
+### Expected Result
+
+- The authenticated request should return HTTP `200`.
+- The booking should be updated.
+- The response should contain the updated booking details.
+
+### Actual Result
+
+The API returned HTTP `200` and the updated booking details, including:
+
+- `totalprice`: 200
+- `additionalneeds`: Dinner
+
+**Status:** PASS
+
+**Evidence:** `TC-007_update_booking_pass.png`
+
+---
+
+## TC-008 - Delete existing booking
+
+**Method:** DELETE  
+**Endpoint:** `/booking/{created_id}`
+
+### Expected Result
+
+The authenticated request should delete the booking successfully and return HTTP `201`.
+
+### Actual Result
+
+The API returned HTTP `201` and the booking was deleted successfully.
+
+**Status:** PASS
+
+**Evidence:** `TC-008_delete_booking_pass.png`
