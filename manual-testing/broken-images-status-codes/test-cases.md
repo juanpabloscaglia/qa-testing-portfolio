@@ -1,109 +1,90 @@
-# Broken Images & Status Codes - Test Cases
+# Broken Images & Status Codes | Recorded Manual Test Cases
 
-## TC-001 - Verify images load correctly
+- **Application:** [The Internet](https://the-internet.herokuapp.com/)
+- **Recorded execution date:** 2026-07-30
+- **Environment:** macOS · Brave
+- **Nature of work:** Portfolio practice; results below reproduce the existing test record and have **not** been re-executed for this documentation update.
 
-**Module:** Broken Images
+## TC-001 - Broken image rendering
 
-### Steps
+- **Page:** <https://the-internet.herokuapp.com/broken_images>
+- **Type:** Manual visual / functional check
 
+**Steps**
 1. Open the Broken Images page.
-2. Wait until the page finishes loading.
-3. Inspect all displayed images.
+2. Wait for the page to finish loading.
+3. Check the displayed images.
 
-### Expected Result
+- **Expected:** All intended images render correctly.
+- **Recorded actual:** Only one image rendered correctly; the first two were broken.
+- **Recorded result:** **FAIL**
+- **Evidence:** [Screenshot](evidence/TC-001_broken_images_fail.png)
+- **Related finding:** [BUG-001](bug-report.md)
 
-All images should load correctly.
-
-### Actual Result
-
-Only one image loaded correctly. The first two images were broken.
-
-**Status:** FAIL
-
-**Related Defect:** BUG-001
+**Context:** The site intentionally offers this defective training scenario. A failed expectation is part of the exercise, not an unexpected customer-facing production incident.
 
 ---
 
-## TC-002 - Verify HTTP 200 status code
+## TC-002 - HTTP 200 demonstration
 
-**Module:** Status Codes
-
-### Steps
-
+- **Page:** <https://the-internet.herokuapp.com/status_codes>
+**Steps**
 1. Open the Status Codes page.
-2. Select HTTP status code 200.
+2. Select the link labeled **200**.
+3. Review the displayed status-code message.
 
-### Expected Result
-
-The application should display information confirming HTTP status code 200.
-
-### Actual Result
-
-The page displayed:
-
-`This page returned a 200 status code.`
-
-**Status:** PASS
+- **Expected:** The exercise displays the information for status code 200.
+- **Recorded actual:** The page showed `This page returned a 200 status code.`
+- **Recorded result:** **PASS**
+- **Evidence:** No separate screenshot documented.
 
 ---
 
-## TC-003 - Verify HTTP 301 status code
+## TC-003 - HTTP 301 demonstration
 
-**Module:** Status Codes
-
-### Steps
-
+- **Page:** <https://the-internet.herokuapp.com/status_codes>
+**Steps**
 1. Open the Status Codes page.
-2. Select HTTP status code 301.
+2. Select the link labeled **301**.
+3. Observe the resulting page and message.
 
-### Expected Result
-
-The application should return status code 301 and display information about it.
-
-### Actual Result
-
-The page correctly displayed information related to HTTP status code 301.
-
-**Status:** PASS
+- **Expected:** The exercise demonstrates the status code 301 scenario.
+- **Recorded actual:** The page displayed information corresponding to the 301 demonstration.
+- **Recorded result:** **PASS**
+- **Evidence:** No separate screenshot or redirect trace documented.
 
 ---
 
-## TC-004 - Verify HTTP 404 status code
+## TC-004 - HTTP 404 demonstration
 
-**Module:** Status Codes
-
-### Steps
-
+- **Page:** <https://the-internet.herokuapp.com/status_codes>
+**Steps**
 1. Open the Status Codes page.
-2. Select HTTP status code 404.
+2. Select the link labeled **404**.
+3. Observe the resulting page and message.
 
-### Expected Result
-
-The application should return status code 404 and display information about it.
-
-### Actual Result
-
-The page correctly displayed information related to HTTP status code 404.
-
-**Status:** PASS
+- **Expected:** The exercise demonstrates the status code 404 scenario.
+- **Recorded actual:** The page displayed information corresponding to the 404 demonstration.
+- **Recorded result:** **PASS**
+- **Evidence:** No separate screenshot documented.
 
 ---
 
-## TC-005 - Verify HTTP 500 status code
+## TC-005 - HTTP 500 demonstration
 
-**Module:** Status Codes
-
-### Steps
-
+- **Page:** <https://the-internet.herokuapp.com/status_codes>
+**Steps**
 1. Open the Status Codes page.
-2. Select HTTP status code 500.
+2. Select the link labeled **500**.
+3. Observe the resulting page and message.
 
-### Expected Result
+- **Expected:** The exercise demonstrates the status code 500 scenario.
+- **Recorded actual:** The page displayed information corresponding to the 500 demonstration.
+- **Recorded result:** **PASS**
+- **Evidence:** No separate screenshot documented.
 
-The application should return status code 500 and display information about it.
+## Scope clarification
 
-### Actual Result
+The status-code tests in this historical record describe the **page behavior recorded by the tester**. They do not include independent captures from DevTools → Network verifying the actual HTTP status, redirect chain or response headers. Such checks would be useful additions to a future run, rather than retroactive claims about this one.
 
-The page correctly displayed information related to HTTP status code 500.
-
-**Status:** PASS
+[← Back to project overview](README.md)
