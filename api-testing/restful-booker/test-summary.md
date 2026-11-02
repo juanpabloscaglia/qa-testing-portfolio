@@ -1,75 +1,54 @@
-# Test Summary Report
+# Restful Booker | Test Execution Summary
 
-## Project
+## Execution record
 
-Restful Booker API Testing
-
-## Objective
-
-Validate selected Restful Booker API operations using Postman and verify HTTP methods, status codes, JSON responses, authentication, positive scenarios, and negative scenarios.
-
-## Environment
-
-- Tool: Postman
-- API Type: REST
-- Data Format: JSON
-- Testing Type: Manual API Testing
-- Execution Date: 2026-08-12
-
-## Execution Summary
-
-| Status | Count |
-|---|---:|
-| Total Test Cases | 8 |
-| Passed | 8 |
-| Failed | 0 |
+| Field | Recorded value |
+| --- | --- |
+| Project | Restful Booker — manual REST API testing |
+| Application | https://restful-booker.herokuapp.com |
+| Tool | Postman |
+| Type | Manual functional API verification |
+| Execution date | 2026-08-12 |
+| Documented cases | 8 |
+| PASS | 8 |
+| FAIL | 0 |
 | Blocked | 0 |
-| Bugs Found | 0 |
+| Bugs recorded | 0 |
+| Evidence screenshots | 7 (none for TC-004) |
 
-**Pass Rate:** 100%
+**Recorded pass rate:** 8/8 (100%) for this specific historical run. This does not imply that all endpoints or current API behavior have been verified.
 
-## Test Cases Executed
+## Case-level results
 
-| Test Case | Method | Scenario | Expected Status | Actual Status | Result |
-|---|---|---|---:|---:|---|
-| TC-001 | GET | Retrieve booking list | 200 | 200 | PASS |
-| TC-002 | GET | Retrieve booking by ID | 200 | 200 | PASS |
-| TC-003 | POST | Create new booking | 200 | 200 | PASS |
-| TC-004 | GET | Retrieve newly created booking | 200 | 200 | PASS |
-| TC-005 | GET | Invalid booking ID | 404 | 404 | PASS |
-| TC-006 | POST | Create authentication token | 200 | 200 | PASS |
-| TC-007 | PUT | Update existing booking | 200 | 200 | PASS |
-| TC-008 | DELETE | Delete existing booking | 201 | 201 | PASS |
+| ID | Operation | Expected HTTP | Recorded HTTP | Status | Evidence |
+| --- | --- | ---: | ---: | --- | --- |
+| TC-001 | GET booking list | 200 | 200 | PASS | [View](evidence/TC-001_get_booking_list_pass.png) |
+| TC-002 | GET booking by ID | 200 | 200 | PASS | [View](evidence/TC-002_get_booking_by_id_pass.png) |
+| TC-003 | POST new booking | 200 | 200 | PASS | [View](evidence/TC-003_create_booking_pass.png) |
+| TC-004 | GET newly created booking | 200 | 200 | PASS | No individual screenshot |
+| TC-005 | GET invalid booking ID | 404 | 404 | PASS | [View](evidence/TC-005_invalid_booking_id_404_pass.png) |
+| TC-006 | POST auth token | 200 | 200 | PASS | [View](evidence/TC-006_create_auth_token_pass.png) |
+| TC-007 | PUT booking update | 200 | 200 | PASS | [View](evidence/TC-007_update_booking_pass.png) |
+| TC-008 | DELETE booking | 201 | 201 | PASS | [View](evidence/TC-008_delete_booking_pass.png) |
 
-## Skills Demonstrated
+## Findings and interpretation
 
-- REST API testing
-- Postman
-- GET, POST, PUT and DELETE requests
-- JSON request bodies
-- JSON response validation
-- HTTP status code validation
-- Positive and negative API testing
-- Authentication token handling
-- Test evidence collection
-- QA documentation
+- The documented cases exercised `GET`, `POST`, `PUT`, and `DELETE` with expected responses for the selected operations.
+- The invalid-booking `404` in TC-005 is **expected behavior** and therefore a passing negative test, not a defect.
+- The `201` recorded for the DELETE request is a convention of this **practice API**, not a general rule for DELETE methods.
+- The original records describe updates to `totalprice` and `additionalneeds`, but do not include a separate follow-up retrieval validating persistence.
+- A separate read-after-delete confirmation was also not documented, so successful deletion was reported based on the recorded DELETE response.
 
-## Evidence
+## Evidence and traceability
 
-Available evidence:
+Seven screenshot files are linked from the table and retained in [evidence/](evidence/). TC-004 has a documented result but no standalone screenshot. Screenshots are historical evidence and are **not** presented as a recent execution.
 
-- `TC-001_get_booking_list_pass.png`
-- `TC-002_get_booking_by_id_pass.png`
-- `TC-003_create_booking_pass.png`
-- `TC-005_invalid_booking_id_404_pass.png`
-- `TC-006_create_auth_token_pass.png`
-- `TC-007_update_booking_pass.png`
-- `TC-008_delete_booking_pass.png`
+## Scope boundaries
 
-A separate screenshot was not captured for TC-004.
+This portfolio project demonstrates foundational manual API testing and QA reporting. It does **not** document comprehensive schema tests, performance/security tests, automated Postman assertions, repeated executions, or a downloadable Postman collection. The practice API may change, and recorded results are not guarantees of future responses.
 
-## Final Result
+## Recommended next execution
 
-All eight API test cases passed successfully.
+Export a sanitized Postman collection, automate response assertions, explicitly verify updated fields via a follow-up `GET`, verify deletion via a separate `GET`, and record new execution dates and screenshots. These are **recommendations**, not completed tests.
 
-The tested endpoints returned the expected status codes and response data, including successful authentication, update and delete operations, and correct handling of an invalid booking ID.
+[← Project overview](README.md) · [Detailed test cases](test-cases.md)

@@ -1,55 +1,41 @@
-# Restful Booker API - Test Cases
+# Restful Booker | Manual API Test Cases
 
-## TC-001 - Retrieve booking list
+**System under test:** [Restful Booker](https://restful-booker.herokuapp.com)
+**Tool used:** Postman
+**Recorded execution:** 2026-08-12
+**Status values:** Results below are taken from the existing historical test record; these cases have **not** been re-executed as part of this documentation update.
 
-**Method:** GET  
-**Endpoint:** `/booking`
+## TC-001 — Retrieve booking list
 
-### Expected Result
-
-- The API should return HTTP `200`.
-- The response should contain a list of booking IDs.
-
-### Actual Result
-
-The API returned HTTP `200` and a list containing multiple booking IDs.
-
-**Status:** PASS
-
-**Evidence:** `TC-001_get_booking_list_pass.png`
+- **Method / endpoint:** `GET /booking`
+- **Precondition:** API is reachable.
+- **Steps:** Send `GET` to the booking collection endpoint; inspect the status and response JSON.
+- **Expected:** HTTP `200`; response contains booking identifiers.
+- **Recorded actual:** HTTP `200`; a list containing multiple booking IDs was returned.
+- **Recorded status:** **PASS**
+- **Evidence:** [TC-001 screenshot](evidence/TC-001_get_booking_list_pass.png)
 
 ---
 
-## TC-002 - Retrieve booking by ID
+## TC-002 — Retrieve booking by ID
 
-**Method:** GET  
-**Endpoint:** `/booking/{id}`
-
-### Expected Result
-
-- The API should return HTTP `200`.
-- The response should contain the selected booking details.
-
-### Actual Result
-
-The API returned HTTP `200` and booking details including fields such as firstname, lastname, totalprice, depositpaid, bookingdates, and additionalneeds.
-
-**Status:** PASS
-
-**Evidence:** `TC-002_get_booking_by_id_pass.png`
+- **Method / endpoint:** `GET /booking/{id}`
+- **Precondition:** A valid booking ID is available.
+- **Steps:** Send a `GET` request using the valid ID; inspect the returned fields.
+- **Expected:** HTTP `200`; booking details for the requested ID.
+- **Recorded actual:** HTTP `200` and a booking object with fields such as `firstname`, `lastname`, `totalprice`, `depositpaid`, `bookingdates`, and `additionalneeds`.
+- **Recorded status:** **PASS**
+- **Evidence:** [TC-002 screenshot](evidence/TC-002_get_booking_by_id_pass.png)
 
 ---
 
-## TC-003 - Create a new booking
+## TC-003 — Create a booking
 
-**Method:** POST  
-**Endpoint:** `/booking`
+- **Method / endpoint:** `POST /booking`
+- **Headers:** `Content-Type: application/json`
+- **Steps:** Submit the recorded booking JSON and inspect the HTTP status, generated `bookingid` and returned booking object.
 
-### Headers
-
-`Content-Type: application/json`
-
-### Request Body
+**Recorded request body:**
 
 ```json
 {
@@ -65,140 +51,79 @@ The API returned HTTP `200` and booking details including fields such as firstna
 }
 ```
 
-### Expected Result
-
-- The API should return HTTP `200`.
-- A new booking should be created.
-- The response should contain a generated `bookingid`.
-- The response should contain the booking details.
-
-### Actual Result
-
-The API returned HTTP `200`, a generated booking ID, and the booking details.
-
-**Status:** PASS
-
-**Evidence:** `TC-003_create_booking_pass.png`
+- **Expected:** HTTP `200`; a generated `bookingid` and booking details corresponding to the request.
+- **Recorded actual:** HTTP `200`; the response included a generated booking ID and the booking data.
+- **Recorded status:** **PASS**
+- **Evidence:** [TC-003 screenshot](evidence/TC-003_create_booking_pass.png)
 
 ---
 
-## TC-004 - Retrieve newly created booking
+## TC-004 — Retrieve the newly created booking
 
-**Method:** GET  
-**Endpoint:** `/booking/{created_id}`
-
-### Expected Result
-
-- The API should return HTTP `200`.
-- The response should contain the booking details created in TC-003.
-
-### Actual Result
-
-The API returned HTTP `200` and the same booking details created in TC-003.
-
-**Status:** PASS
-
-**Evidence:** No separate screenshot captured.
+- **Method / endpoint:** `GET /booking/{created_id}`
+- **Precondition:** TC-003 returned a booking ID.
+- **Steps:** Use that ID in a `GET` request; compare the returned booking object with the data submitted in TC-003.
+- **Expected:** HTTP `200`; values match the booking created in TC-003.
+- **Recorded actual:** HTTP `200`; the previously created booking details were returned.
+- **Recorded status:** **PASS**
+- **Evidence:** No individual screenshot was retained for TC-004. This limitation is documented explicitly; no evidence is fabricated.
 
 ---
 
-## TC-005 - Request booking with invalid ID
+## TC-005 — Retrieve a booking with an invalid ID
 
-**Method:** GET  
-**Endpoint:** `/booking/{invalid_id}`
-
-### Expected Result
-
-The API should return:
-
-`404 Not Found`
-
-### Actual Result
-
-The API returned:
-
-`404 Not Found`
-
-The invalid booking ID was handled correctly.
-
-**Status:** PASS
-
-**Evidence:** `TC-005_invalid_booking_id_404_pass.png`
+- **Method / endpoint:** `GET /booking/{invalid_id}`
+- **Precondition:** Use an ID that does not correspond to an available booking.
+- **Steps:** Send a `GET` request with that invalid ID; inspect the status.
+- **Expected:** HTTP `404 Not Found`.
+- **Recorded actual:** HTTP `404 Not Found`.
+- **Recorded status:** **PASS** (negative scenario behaved as expected).
+- **Evidence:** [TC-005 screenshot](evidence/TC-005_invalid_booking_id_404_pass.png)
 
 ---
 
-## TC-006 - Create authentication token
+## TC-006 — Generate an authentication token
 
-**Method:** POST  
-**Endpoint:** `/auth`
-
-### Headers
-
-`Content-Type: application/json`
-
-### Request Body
-
-```json
-{
-  "username": "admin",
-  "password": "password123"
-}
-```
-
-### Expected Result
-
-- The API should return HTTP `200`.
-- The response should contain an authentication token.
-
-### Actual Result
-
-The API returned HTTP `200` and a valid authentication token.
-
-The token was redacted from public evidence.
-
-**Status:** PASS
-
-**Evidence:** `TC-006_create_auth_token_pass.png`
+- **Method / endpoint:** `POST /auth`
+- **Headers:** `Content-Type: application/json`
+- **Steps:** Send an authentication request with the published credentials of the **public demo API**; inspect the status and token field. Do not publish an actual token.
+- **Expected:** HTTP `200`; response contains an authentication token.
+- **Recorded actual:** HTTP `200`; a token was returned.
+- **Recorded status:** **PASS**
+- **Evidence:** [TC-006 screenshot](evidence/TC-006_create_auth_token_pass.png)
 
 ---
 
-## TC-007 - Update existing booking
+## TC-007 — Update a booking
 
-**Method:** PUT  
-**Endpoint:** `/booking/{created_id}`
-
-### Expected Result
-
-- The authenticated request should return HTTP `200`.
-- The booking should be updated.
-- The response should contain the updated booking details.
-
-### Actual Result
-
-The API returned HTTP `200` and the updated booking details, including:
-
-- `totalprice`: 200
-- `additionalneeds`: Dinner
-
-**Status:** PASS
-
-**Evidence:** `TC-007_update_booking_pass.png`
+- **Method / endpoint:** `PUT /booking/{created_id}`
+- **Preconditions:** A booking exists; authentication token obtained in TC-006 is available.
+- **Steps:** Send an authenticated `PUT` request to the created booking ID with an updated booking payload; inspect status and returned data.
+- **Expected:** HTTP `200`; response reflects updated booking values.
+- **Recorded actual:** HTTP `200`; updated response included `totalprice: 200` and `additionalneeds: Dinner`.
+- **Recorded status:** **PASS**
+- **Evidence:** [TC-007 screenshot](evidence/TC-007_update_booking_pass.png)
 
 ---
 
-## TC-008 - Delete existing booking
+## TC-008 — Delete a booking
 
-**Method:** DELETE  
-**Endpoint:** `/booking/{created_id}`
+- **Method / endpoint:** `DELETE /booking/{created_id}`
+- **Preconditions:** Created booking exists; authentication is available.
+- **Steps:** Send an authenticated `DELETE` request for the created booking; inspect the response status.
+- **Expected for this practice API:** HTTP `201` (documented Restful Booker behavior for successful deletion; not a general REST rule).
+- **Recorded actual:** HTTP `201`; the original test record reported a successful delete operation.
+- **Recorded status:** **PASS**
+- **Evidence:** [TC-008 screenshot](evidence/TC-008_delete_booking_pass.png)
+- **Coverage limitation:** A separate `GET` after deletion was **not documented**; therefore the historical result does not demonstrate an independently verified post-delete `404`.
 
-### Expected Result
+---
 
-The authenticated request should delete the booking successfully and return HTTP `201`.
+## Additional notes
 
-### Actual Result
+- Statuses and observations are preserved from the original project files; no new execution results were added.
+- The screenshots capture evidence for seven cases; TC-004 has no individual screenshot.
+- Tests were designed for a **training API**, not a production customer system.
+- For a more rigorous suite, add request examples for all cases, Postman assertions, test-data management, and a separate verification step after update/deletion.
 
-The API returned HTTP `201` and the booking was deleted successfully.
-
-**Status:** PASS
-
-**Evidence:** `TC-008_delete_booking_pass.png`
+[← Project overview](README.md) · [Execution summary](test-summary.md)
