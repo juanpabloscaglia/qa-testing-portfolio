@@ -1,261 +1,155 @@
-# SauceDemo E-commerce Testing - Test Cases
+# SauceDemo | Documented Manual Test Cases
 
-## TC-001 - Login with valid credentials
+**Application:** [SauceDemo](https://www.saucedemo.com/)
+**Environment used:** macOS · Brave
+**Context:** Learning/practice execution. Each result below reflects the recorded execution, not a new test run.
 
-### Steps
+## TC-001 — Login with valid credentials
 
+**Steps**
 1. Open SauceDemo.
 2. Enter valid credentials.
-3. Click Login.
+3. Click **Login**.
 
-### Expected Result
+**Expected:** The user reaches the Products page.
+**Recorded actual:** The user was redirected to the Products page.
+**Status:** PASS · [Evidence](evidence/TC-001_valid_login_pass.png)
 
-The user should successfully access the Products page.
+## TC-002 — Add product to cart
 
-### Actual Result
+**Steps**
+1. Log in.
+2. Find the Sauce Labs Backpack.
+3. Click **Add to cart**.
 
-The user was redirected to the Products page.
+**Expected:** The product is added and the cart badge shows `1`.
+**Recorded actual:** The product was added and the cart badge showed `1`.
+**Status:** PASS · [Evidence](evidence/TC-002_add_product_to_cart_pass.png)
 
-**Status:** PASS
+## TC-003 — Verify product details in cart
 
-**Evidence:**
-
-`TC-001_valid_login_pass.png`
-
----
-
-## TC-002 - Add product to cart
-
-### Steps
-
-1. Login successfully.
-2. Locate Sauce Labs Backpack.
-3. Click Add to Cart.
-
-### Expected Result
-
-The product should be added to the cart and the cart badge should display `1`.
-
-### Actual Result
-
-The product was successfully added and the cart badge displayed `1`.
-
-**Status:** PASS
-
----
-
-## TC-003 - Verify product information in cart
-
-### Steps
-
-1. Add a product to the cart.
-2. Open the shopping cart.
-3. Review the product information.
-
-### Expected Result
-
-The product name, description, quantity, and price should match the selected product.
-
-### Actual Result
-
-The product information displayed in the cart was correct.
-
-**Status:** PASS
-
----
-
-## TC-004 - Remove product from cart
-
-### Steps
-
+**Steps**
 1. Add a product to the cart.
 2. Open the cart.
-3. Click Remove.
+3. Compare the product name, description, quantity, and price with the selected item.
 
-### Expected Result
+**Expected:** Cart details match the selected product.
+**Recorded actual:** Cart information was correct.
+**Status:** PASS · [Evidence](evidence/TC-003_verify_cart_contents_pass.png)
 
-The product should be removed from the cart.
+## TC-004 — Remove product from cart
 
-### Actual Result
+**Steps**
+1. Add a product to the cart.
+2. Open the cart.
+3. Click **Remove**.
 
-The product was successfully removed.
+**Expected:** The product is removed.
+**Recorded actual:** The product was removed.
+**Status:** PASS · [Evidence](evidence/TC-004_remove_product_from_cart_pass.png)
 
-**Status:** PASS
+## TC-005 — Proceed to checkout
 
----
+**Precondition:** At least one product is in the cart.
 
-## TC-005 - Proceed to checkout
+**Steps**
+1. Open the cart.
+2. Click **Checkout**.
 
-### Preconditions
+**Expected:** The checkout information page is displayed.
+**Recorded actual:** The checkout information page appeared.
+**Status:** PASS · [Evidence](evidence/TC-005_proceed_to_checkout_pass.png)
 
-A product is present in the shopping cart.
+## TC-006 — Submit checkout with all required fields empty
 
-### Steps
+**Precondition:** Checkout information page is open.
 
-1. Open the shopping cart.
-2. Click Checkout.
+**Steps**
+1. Leave all required fields blank.
+2. Click **Continue**.
 
-### Expected Result
+**Expected:** Checkout is blocked and a required-field validation message appears.
+**Recorded actual:** Checkout was blocked and validation appeared.
+**Status:** PASS · [Evidence](evidence/TC-006_empty_checkout_fields_validation_pass.png)
 
-The user should be redirected to the checkout information page.
+## TC-007 — Validate missing last name
 
-### Actual Result
+**Precondition:** Checkout information page is open.
 
-The checkout information page was displayed correctly.
+**Steps**
+1. Enter a first name.
+2. Leave last name blank.
+3. Enter a postal code.
+4. Click **Continue**.
 
-**Status:** PASS
+**Expected:** Checkout is blocked and the missing last name is identified.
+**Recorded actual:** Checkout was blocked and the missing last name was validated.
+**Status:** PASS · [Evidence](evidence/TC-007_last_name_checkout_validation_pass.png)
 
----
+## TC-008 — Validate missing postal code
 
-## TC-006 - Submit checkout with all required fields empty
+**Precondition:** Checkout information page is open.
 
-### Steps
+**Steps**
+1. Enter a first name and last name.
+2. Leave postal code blank.
+3. Click **Continue**.
 
-1. Open the checkout information page.
-2. Leave all required fields empty.
-3. Click Continue.
+**Expected:** Checkout is blocked and the missing postal code is identified.
+**Recorded actual:** Checkout was blocked and the missing postal code was validated.
+**Status:** PASS · [Evidence](evidence/TC-008_postal_code_checkout_validation_pass.png)
 
-### Expected Result
+## TC-009 — Validate missing first and last name
 
-The checkout should not continue and the application should display required-field validation.
+**Precondition:** Checkout information page is open.
 
-### Actual Result
+**Steps**
+1. Leave first and last name blank.
+2. Enter a postal code.
+3. Click **Continue**.
 
-The application prevented the checkout from continuing and displayed the required validation.
+**Expected:** Checkout is blocked and missing required information is validated.
+**Recorded actual:** Checkout was blocked and validation was displayed.
+**Status:** PASS · [Evidence](evidence/TC-009_first_and_last_name_checkout_validation_pass.png)
 
-**Status:** PASS
+## TC-010 — Continue checkout with valid information
 
-**Evidence:**
+**Precondition:** Checkout information page is open.
 
-`TC-006_empty_checkout_fields_validation_pass.png`
+**Steps**
+1. Enter a valid first name, last name, and postal code.
+2. Click **Continue**.
 
----
+**Expected:** The checkout overview page is displayed.
+**Recorded actual:** The checkout overview page was displayed.
+**Status:** PASS · [Evidence](evidence/TC-010_valid_checkout_information_pass.png)
 
-## TC-007 - Submit checkout without Last Name
+## TC-011 — Complete purchase
 
-### Steps
+**Precondition:** Checkout overview page is open.
 
-1. Enter a valid First Name.
-2. Leave Last Name empty.
-3. Enter a valid Postal Code.
-4. Click Continue.
-
-### Expected Result
-
-The checkout should not continue and a validation message should indicate that Last Name is required.
-
-### Actual Result
-
-The application prevented checkout continuation and correctly validated the missing Last Name.
-
-**Status:** PASS
-
----
-
-## TC-008 - Submit checkout without Postal Code
-
-### Steps
-
-1. Enter a valid First Name.
-2. Enter a valid Last Name.
-3. Leave Postal Code empty.
-4. Click Continue.
-
-### Expected Result
-
-The checkout should not continue and a validation message should indicate that Postal Code is required.
-
-### Actual Result
-
-The application prevented checkout continuation and correctly validated the missing Postal Code.
-
-**Status:** PASS
-
----
-
-## TC-009 - Submit checkout without First Name and Last Name
-
-### Steps
-
-1. Leave First Name empty.
-2. Leave Last Name empty.
-3. Enter a valid Postal Code.
-4. Click Continue.
-
-### Expected Result
-
-The checkout should not continue and the application should validate the missing required information.
-
-### Actual Result
-
-The application prevented checkout continuation and displayed the required-field validation.
-
-**Status:** PASS
-
----
-
-## TC-010 - Continue checkout with valid information
-
-### Steps
-
-1. Enter a valid First Name.
-2. Enter a valid Last Name.
-3. Enter a valid Postal Code.
-4. Click Continue.
-
-### Expected Result
-
-The user should continue to the checkout overview page.
-
-### Actual Result
-
-The checkout overview page was displayed successfully.
-
-**Status:** PASS
-
----
-
-## TC-011 - Complete purchase
-
-### Preconditions
-
-The user is on the Checkout Overview page.
-
-### Steps
-
+**Steps**
 1. Review the order information.
-2. Click Finish.
+2. Click **Finish**.
 
-### Expected Result
+**Expected:** Purchase completion is confirmed.
+**Recorded actual:** The completion confirmation was displayed.
+**Status:** PASS · [Evidence](evidence/TC-011_complete_purchase_pass.png)
 
-The purchase should be completed and an order confirmation page should be displayed.
+## TC-012 — Save order confirmation as a PDF (QA documentation)
 
-### Actual Result
+**Classification:** Documentation/evidence collection, **not a SauceDemo product-feature test**.
+**Precondition:** Purchase confirmation was displayed.
 
-The purchase was completed successfully and the confirmation page was displayed.
+**Steps**
+1. Open the completed-order confirmation.
+2. Export or save the confirmation view as a PDF using available browser/OS functionality.
+3. Save the file as test documentation.
 
-**Status:** PASS
+**Expected:** A readable PDF record of the confirmation is saved.
+**Recorded actual:** A PDF record was generated successfully.
+**Status:** PASS · [Evidence](evidence/TC-012_generate_order_pdf_pass.png)
 
 ---
 
-## TC-012 - Generate PDF of completed order
-
-### Preconditions
-
-The purchase has been successfully completed.
-
-### Steps
-
-1. Open the completed order confirmation.
-2. Generate a PDF from the confirmation page.
-3. Save the document.
-
-### Expected Result
-
-A readable PDF containing the completed order confirmation should be generated successfully.
-
-### Actual Result
-
-The PDF was generated successfully.
-
-**Status:** PASS
+**Execution notes:** These cases document the observed results of the original practice run. The execution date is not specified in the existing SauceDemo records. No retest is implied by this documentation update. Screenshots are linked by test-case ID.
