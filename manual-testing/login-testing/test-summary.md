@@ -1,56 +1,43 @@
-# Test Summary Report
+# Login Testing | Execution Summary
 
-## Project
+## Context
 
-Login Testing - The Internet
+- **Application:** [The Internet — Form Authentication](https://the-internet.herokuapp.com/login)
+- **Execution environment recorded:** macOS / Brave browser
+- **Testing approach:** Manual functional testing, positive and negative scenarios
+- **Execution date:** Not recorded in the original project documentation
+- **Project type:** Educational practice
 
-## Test Objective
+## Historical results
 
-Validate the Login authentication workflow, credential validation, session access, and logout functionality.
+| Metric | Recorded outcome |
+| --- | ---: |
+| Test cases | 8 |
+| PASS | 8 |
+| FAIL | 0 |
+| BLOCKED | 0 |
+| Defects logged in this execution | 0 |
+| Saved screenshots | 4 |
 
-## Environment
+The recorded pass rate is **8/8 (100%) for this execution only**. This does not establish exhaustive coverage or present-day behavior.
 
-- Operating System: macOS
-- Browser: Brave
-- Testing Type: Manual Functional Testing
+## Evidence and traceability
 
-## Execution Summary
+| TC-001 | Valid login | PASS | [Screenshot](evidence/TC-001_valid_login_pass.png) |
+| TC-002 | Invalid username | PASS | [Screenshot](evidence/TC-002_invalid_username_error_pass.png) |
+| TC-003 | Invalid password | PASS | [Screenshot](evidence/TC-003_invalid_password_error_pass.png) |
+| TC-004 | Empty username | PASS | Not captured |
+| TC-005 | Empty password | PASS | Not captured |
+| TC-006 | Both credentials empty | PASS | Not captured |
+| TC-007 | Logout | PASS | [Screenshot](evidence/TC-007_logout_pass.png) |
+| TC-008 | Password case sensitivity | PASS | Not captured |
 
-| Status           | Count |
-| ---------------- | ----: |
-| Total Test Cases |     8 |
-| Passed           |     8 |
-| Failed           |     0 |
-| Blocked          |     0 |
-| Defects          |     0 |
+## Conclusion
 
-**Pass Rate:** 100%
+The documented scenarios covered valid login, invalid and missing credentials, case-sensitive password handling, and logout. All eight original cases were marked PASS. No defects were recorded in that run.
 
-## Areas Tested
+## Limitations
 
-- Valid authentication
-- Invalid username validation
-- Invalid password validation
-- Empty field validation
-- Password case sensitivity
-- Secure area access
-- User session
-- Logout
+Only four cases have corresponding screenshots. No additional test execution, network traces, browser compatibility checks, or security testing were performed as part of this documentation update.
 
-## Evidence
-
-Screenshots were captured during test execution.
-
-Examples:
-
-- `TC-001_valid_login_pass.png`
-- `TC-002_invalid_username_error_pass.png`
-- `TC-007_logout_pass.png`
-
-Additional evidence is stored in the `evidence` directory.
-
-## Final Result
-
-All eight test cases passed successfully.
-
-No functional defects were identified during this test execution.
+[Detailed test cases](test-cases.md) · [Project overview](README.md)

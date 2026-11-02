@@ -1,75 +1,52 @@
-# Login Testing Project
+# Login Testing | Manual Functional QA
 
-Manual functional testing project performed on the Login feature of **The Internet** web application.
+**Portfolio status:** Educational practice project (not client work)
+**Application:** [The Internet — Form Authentication](https://the-internet.herokuapp.com/login)
+**Recorded environment:** macOS · Brave browser
+**Execution date:** Not specified in the original records
 
-## Application
+## Goal
 
-The Internet - Form Authentication
+Verify positive and negative login scenarios, handling of missing credentials, password case sensitivity, and logout behavior through structured manual test cases.
 
-https://the-internet.herokuapp.com/login
+## Recorded execution
 
-## Objective
+| Metric | Value |
+| --- | ---: |
+| Documented test cases | 8 |
+| Passed | 8 |
+| Failed | 0 |
+| Blocked | 0 |
+| Defects recorded in this execution | 0 |
+| Saved evidence screenshots | 4 |
 
-Validate the authentication flow and verify the system behavior when users enter valid, invalid, or incomplete credentials.
+These results reflect **one documented practice execution**. They are not a fresh retest or proof that the application has no defects.
 
-## Scope
+## Test coverage and evidence
 
-The following scenarios were tested:
+| ID | Scenario | Recorded result | Evidence |
+| --- | --- | --- | --- |
+| TC-001 | Valid login | PASS | [Screenshot](evidence/TC-001_valid_login_pass.png) |
+| TC-002 | Invalid username | PASS | [Screenshot](evidence/TC-002_invalid_username_error_pass.png) |
+| TC-003 | Invalid password | PASS | [Screenshot](evidence/TC-003_invalid_password_error_pass.png) |
+| TC-004 | Empty username | PASS | Not captured |
+| TC-005 | Empty password | PASS | Not captured |
+| TC-006 | Both credentials empty | PASS | Not captured |
+| TC-007 | Logout | PASS | [Screenshot](evidence/TC-007_logout_pass.png) |
+| TC-008 | Password case sensitivity | PASS | Not captured |
 
-- Valid login
-- Invalid username
-- Invalid password
-- Empty username
-- Empty password
-- Empty credentials
-- Logout
-- Password case sensitivity
+## Deliverables
 
-## Test Coverage
+- [Reproduction steps, expected and actual results](test-cases.md)
+- [Execution summary, scope and limitations](test-summary.md)
+- [Evidence directory](evidence/)
 
-Login Page → Credential Validation → Authentication → User Session → Logout
+## Skills demonstrated
 
-## Testing Type
+Test design · Positive and negative functional testing · Authentication scenarios · Input validation · Session/logout checks · Screenshot evidence · Clear QA reporting.
 
-- Manual Testing
-- Functional Testing
-- Negative Testing
-- UI Validation
+## Limitations and next steps
 
-## Environment
+The original records cover a single browser environment and do not contain performance, accessibility, security or cross-browser results. Four cases have screenshots, not all eight. Future work could add browser matrix checks, session-expiry cases and dated retest evidence.
 
-- macOS
-- Brave Browser
-
-## Tools
-
-- Browser
-- Google Sheets
-- Git
-- GitHub
-- Visual Studio Code
-
-## Results
-
-| Metric           | Result |
-| ---------------- | -----: |
-| Total Test Cases |      8 |
-| Passed           |      8 |
-| Failed           |      0 |
-| Blocked          |      0 |
-| Defects Found    |      0 |
-| Pass Rate        |   100% |
-
-## Project Files
-
-- [Test Cases](test-cases.md)
-- [Test Summary](test-summary.md)
-- [Evidence](evidence/)
-
-## Conclusion
-
-The Login functionality behaved as expected in all executed scenarios.
-
-Valid credentials successfully granted access to the secure area, while invalid or incomplete credentials displayed the appropriate validation messages.
-
-The logout functionality also worked correctly and returned the user to the Login page.
+[← Back to QA portfolio](../../README.md)

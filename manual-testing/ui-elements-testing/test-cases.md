@@ -1,209 +1,183 @@
-# UI Elements Testing - Test Cases
+# UI Elements Testing | Test Cases
 
-## Checkboxes
+**Practice application:** https://the-internet.herokuapp.com/
+**Recorded execution:** Historical project documentation; tests were not rerun during this documentation update.
 
-### TC-001 - Verify default checkbox states
+**Modules:** Checkboxes, Dropdown, JavaScript Alerts. **Note:** PASS denotes the original recorded outcome; the documentation update is not a retest.
+
+## TC-001 — Default checkbox states
 
 **Steps**
 
-1. Open the Checkboxes page.
-2. Observe Checkbox 1 and Checkbox 2.
+1. Open the Checkboxes exercise.
+2. Observe both checkbox states.
 
-**Expected Result**
+**Expected result:** Checkbox 1 is unchecked and Checkbox 2 is checked.
 
-Checkbox 1 should be unchecked and Checkbox 2 should be checked.
+**Recorded actual result:** Checkbox 1 was unchecked and Checkbox 2 was checked.
 
-**Actual Result**
+**Recorded status:** PASS
 
-Checkbox 1 was unchecked and Checkbox 2 was checked.
-
-**Status:** PASS
+**Evidence:** [Screenshot](evidence/TC-001_default_checkboxes_pass.png)
 
 ---
 
-### TC-002 - Select Checkbox 1
+## TC-002 — Select Checkbox 1
 
 **Steps**
 
-1. Open the Checkboxes page.
+1. Open the Checkboxes exercise.
 2. Click Checkbox 1.
 
-**Expected Result**
+**Expected result:** Checkbox 1 becomes checked.
 
-Checkbox 1 should become selected.
+**Recorded actual result:** Checkbox 1 became checked.
 
-**Actual Result**
+**Recorded status:** PASS
 
-Checkbox 1 became selected.
-
-**Status:** PASS
+**Evidence:** No individual screenshot was saved.
 
 ---
 
-### TC-003 - Unselect Checkbox 2
+## TC-003 — Unselect Checkbox 2
 
 **Steps**
 
-1. Open the Checkboxes page.
+1. Open the Checkboxes exercise.
 2. Click Checkbox 2.
 
-**Expected Result**
+**Expected result:** Checkbox 2 becomes unchecked.
 
-Checkbox 2 should become unchecked.
+**Recorded actual result:** Checkbox 2 became unchecked.
 
-**Actual Result**
+**Recorded status:** PASS
 
-Checkbox 2 became unchecked.
-
-**Status:** PASS
+**Evidence:** No individual screenshot was saved.
 
 ---
 
-## Dropdown
-
-### TC-004 - Verify default dropdown option
+## TC-004 — Default dropdown option
 
 **Steps**
 
-1. Open the Dropdown page.
-2. Observe the dropdown before selecting an option.
+1. Open the Dropdown exercise.
+2. Observe the initial selected value.
 
-**Expected Result**
+**Expected result:** The placeholder is `Please select an option`.
 
-The default value should be `Please select an option`.
+**Recorded actual result:** The placeholder was displayed.
 
-**Actual Result**
+**Recorded status:** PASS
 
-The default value was displayed correctly.
-
-**Status:** PASS
+**Evidence:** No individual screenshot was saved.
 
 ---
 
-### TC-005 - Select Option 1
+## TC-005 — Select dropdown Option 1
 
 **Steps**
 
-1. Open the Dropdown page.
+1. Open the Dropdown exercise.
 2. Open the dropdown.
 3. Select Option 1.
 
-**Expected Result**
+**Expected result:** Option 1 becomes selected.
 
-Option 1 should become the selected value.
+**Recorded actual result:** Option 1 was selected.
 
-**Actual Result**
+**Recorded status:** PASS
 
-Option 1 was selected correctly.
-
-**Status:** PASS
+**Evidence:** No individual screenshot was saved.
 
 ---
 
-### TC-006 - Select Option 2
+## TC-006 — Select dropdown Option 2
 
 **Steps**
 
-1. Open the Dropdown page.
+1. Open the Dropdown exercise.
 2. Open the dropdown.
 3. Select Option 2.
 
-**Expected Result**
+**Expected result:** Option 2 becomes selected.
 
-Option 2 should become the selected value.
+**Recorded actual result:** Option 2 was selected.
 
-**Actual Result**
+**Recorded status:** PASS
 
-Option 2 was selected correctly.
-
-**Status:** PASS
+**Evidence:** [Screenshot](evidence/TC-006_dropdown_option_2_pass.png)
 
 ---
 
-## JavaScript Alerts
-
-### TC-007 - Click JS Alert and accept it
+## TC-007 — Accept JavaScript alert
 
 **Steps**
 
-1. Open the JavaScript Alerts page.
-2. Click `Click for JS Alert`.
+1. Open the JavaScript Alerts exercise.
+2. Click **Click for JS Alert**.
 3. Accept the alert.
 
-**Expected Result**
+**Expected result:** The dialog closes and a confirmation message appears.
 
-The alert should close and a confirmation message should be displayed.
+**Recorded actual result:** The alert closed and a result message appeared.
 
-**Actual Result**
+**Recorded status:** PASS
 
-The alert closed successfully and the result message was displayed.
-
-**Status:** PASS
+**Evidence:** No individual screenshot was saved.
 
 ---
 
-### TC-008 - Click JS Confirm and accept it
+## TC-008 — Accept JavaScript confirm
 
 **Steps**
 
-1. Click `Click for JS Confirm`.
-2. Click OK.
+1. Open the JavaScript Alerts exercise.
+2. Click **Click for JS Confirm**.
+3. Choose **OK**.
 
-**Expected Result**
+**Expected result:** The page displays `You clicked: Ok`.
 
-The page should display:
+**Recorded actual result:** The page displayed `You clicked: Ok`.
 
-`You clicked: Ok`
+**Recorded status:** PASS
 
-**Actual Result**
-
-`You clicked: Ok`
-
-**Status:** PASS
+**Evidence:** [Screenshot](evidence/TC-008_js_confirm_ok_pass.png)
 
 ---
 
-### TC-009 - Click JS Confirm and cancel it
+## TC-009 — Cancel JavaScript confirm
 
 **Steps**
 
-1. Click `Click for JS Confirm`.
-2. Click Cancel.
+1. Open the JavaScript Alerts exercise.
+2. Click **Click for JS Confirm**.
+3. Choose **Cancel**.
 
-**Expected Result**
+**Expected result:** The page displays `You clicked: Cancel`.
 
-The page should display:
+**Recorded actual result:** The page displayed `You clicked: Cancel`.
 
-`You clicked: Cancel`
+**Recorded status:** PASS
 
-**Actual Result**
-
-`You clicked: Cancel`
-
-**Status:** PASS
+**Evidence:** No individual screenshot was saved.
 
 ---
 
-### TC-010 - Enter text in JS Prompt
-
-**Test Data**
-
-`QA Testing`
+## TC-010 — Enter text in JavaScript prompt
 
 **Steps**
 
-1. Click `Click for JS Prompt`.
-2. Enter `QA Testing`.
-3. Click OK.
+1. Open the JavaScript Alerts exercise.
+2. Click **Click for JS Prompt**.
+3. Enter `QA Testing`.
+4. Choose **OK**.
 
-**Expected Result**
+**Expected result:** The page displays `You entered: QA Testing`.
 
-The page should display:
+**Recorded actual result:** The page displayed `You entered: QA Testing`.
 
-`You entered: QA Testing`
+**Recorded status:** PASS
 
-**Actual Result**
+**Evidence:** [Screenshot](evidence/TC-010_js_prompt_text_pass.png)
 
-`You entered: QA Testing`
-
-**Status:** PASS
+---

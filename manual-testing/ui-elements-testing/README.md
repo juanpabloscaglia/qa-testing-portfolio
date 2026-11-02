@@ -1,84 +1,60 @@
-# UI Elements Testing
+# UI Elements Testing | Manual Functional QA
 
-Manual functional testing project focused on common web UI elements using **The Internet** practice application.
-
-## Modules Tested
-
-- Checkboxes
-- Dropdown
-- JavaScript Alerts
-
-## Application
-
-The Internet
-
-### URLs
-
-Checkboxes:
-https://the-internet.herokuapp.com/checkboxes
-
-Dropdown:
-https://the-internet.herokuapp.com/dropdown
-
-JavaScript Alerts:
-https://the-internet.herokuapp.com/javascript_alerts
+**Portfolio status:** Educational practice project (not client work)
+**Application:** [The Internet](https://the-internet.herokuapp.com/)
+**Recorded environment:** macOS · Brave browser
+**Execution date:** Not specified in the original records
 
 ## Objective
 
-Validate the expected behavior of common web interface elements and user interactions.
+Practice manual verification of common web interactions, including initial states, input selections, and JavaScript dialog outcomes.
 
-## Testing Types
+## Practice modules
 
-- Manual Testing
-- Functional Testing
-- Positive Testing
-- Negative Testing
-- UI Testing
+- [Checkboxes](https://the-internet.herokuapp.com/checkboxes) — initial state, checking and unchecking
+- [Dropdown](https://the-internet.herokuapp.com/dropdown) — placeholder and option selection
+- [JavaScript Alerts](https://the-internet.herokuapp.com/javascript_alerts) — alert, confirm (OK/Cancel) and prompt input
 
-## Environment
+## Recorded execution results
 
-- macOS
-- Brave Browser
+| Metric | Value |
+| --- | ---: |
+| Documented test cases | 10 |
+| Passed | 10 |
+| Failed | 0 |
+| Blocked | 0 |
+| Defects recorded in this execution | 0 |
+| Saved evidence screenshots | 4 |
 
-## Test Results
+These results are from **one recorded educational exercise**, not a new execution or a guarantee about current site behavior.
 
-| Metric           | Result |
-| ---------------- | -----: |
-| Total Test Cases |     10 |
-| Passed           |     10 |
-| Failed           |      0 |
-| Defects Found    |      0 |
-| Pass Rate        |   100% |
+## Test coverage and evidence
 
-## Test Coverage
+| ID | Scenario | Recorded result | Evidence |
+| --- | --- | --- | --- |
+| TC-001 | Default checkbox states | PASS | [Screenshot](evidence/TC-001_default_checkboxes_pass.png) |
+| TC-002 | Select Checkbox 1 | PASS | Not captured |
+| TC-003 | Unselect Checkbox 2 | PASS | Not captured |
+| TC-004 | Default dropdown option | PASS | Not captured |
+| TC-005 | Select dropdown Option 1 | PASS | Not captured |
+| TC-006 | Select dropdown Option 2 | PASS | [Screenshot](evidence/TC-006_dropdown_option_2_pass.png) |
+| TC-007 | Accept JavaScript alert | PASS | Not captured |
+| TC-008 | Accept JavaScript confirm | PASS | [Screenshot](evidence/TC-008_js_confirm_ok_pass.png) |
+| TC-009 | Cancel JavaScript confirm | PASS | Not captured |
+| TC-010 | Enter text in JavaScript prompt | PASS | [Screenshot](evidence/TC-010_js_prompt_text_pass.png) |
 
-### Checkboxes
+## Deliverables
 
-- Default checkbox states
-- Select Checkbox 1
-- Unselect Checkbox 2
+- [Test cases with steps, expected and actual results](test-cases.md)
+- [Execution summary and limitations](test-summary.md)
+- [Available screenshots](evidence/)
 
-### Dropdown
+## Skills demonstrated
 
-- Default dropdown value
-- Select Option 1
-- Select Option 2
+UI functional testing · State validation · User interaction testing · Positive and negative paths · JavaScript dialogs · Test traceability · Documentation.
 
-### JavaScript Alerts
+## Scope limitations
 
-- Accept JS Alert
-- Accept JS Confirm
-- Cancel JS Confirm
-- Enter text in JS Prompt
+The original project used one recorded browser environment and has four screenshot files. It does not establish tests on mobile devices, multiple browsers, accessibility, performance, automation or security. Further work could include keyboard-only navigation, error handling and different viewport sizes with new evidence.
 
-## Project Files
-
-- [Test Cases](test-cases.md)
-- [Test Summary](test-summary.md)
-- [Evidence](evidence/)
-
-## Conclusion
-
-All executed test cases passed successfully.
-
-Checkboxes, dropdown options and JavaScript alerts behaved according to the expected results.
+[← Back to QA portfolio](../../README.md)
